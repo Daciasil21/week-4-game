@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+
+  <title>Crystal Game</title>
+  
+  <style type="text/css">
+
+  </style>
+
+</head>
+<body>
+<header>
+  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  <h2> Wins: <span id="wins"> </span></h2>
+  <h2> Losses: <span id="losses"> </span></h2>
+  <h2> Total Score: <span id = "totalScore"></span></h2>
+</header>
+   <div id=number-to-guess>
+  </div>
+  <div = row>
+      <br>
+      <br>
+      <div class="col-md-2">
+      </div>
+        <div class="col-md-2">
+          <img class="blueCrystal crystal" src="assets/images/blue.png">
+        </div>
+        <div class="col-md-2">
+          <img class="redCrystal crystal" src="assets/images/red.png">
+        </div>
+        <div class="col-md-2">
+          <img class="yellowCrystal crystal" src="assets/images/yellow.png">
+        </div>
+        <div class="col-md-2">
+          <img class="greenCrystal crystal" src="assets/images/green.png">
+        </div>
+      </div>
+    
+
+
+
+
+  <!-- JAVASCRIPT  -->
+  <!-- ========================================= -->
+  
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+
+//----------------variables------------------//
+  var totalScore = 0;
+ 
+  var wins = 0;
+  
+  var losses = 0;
+
+  //---------------------------------------------//
+
+
+//Math.random() * (max - min) + min;
+  var computerTargetNumber = Math.floor(Math.random() * (120 - 19)+ 19);
+  var blueCrystal = Math.floor(Math.random() * (12 - 1) + 1);
+  var redCrystal = Math.floor(Math.random() * (12 - 1) + 1);
+  var yellowCrystal = Math.floor(Math.random() * (12 - 1) + 1);
+  var greenCrystal = Math.floor(Math.random() * (12 - 1) + 1);
+ $("#number-to-guess").text(computerTargetNumber);
+
+
+ 
+$(".blueCrystal").on("click", function() {
+var crystalValueBlue = blueCrystal;
+totalScore += crystalValueBlue;
+$("#totalScore").text(totalScore);
+    if (totalScore === computerTargetNumber) {
+    wins++;
+    console.log(wins);
+    alert("You win");
+    HTML();
+    reset();
+  }
+
+  else if (totalScore >= computerTargetNumber) {
+    losses++;
+   alert("You lose!!");
+    HTML();
+    reset();
+    }
+ 
+});  // click
+
+$(".redCrystal").on("click", function() {
+var crystalValueRed = redCrystal;
+totalScore += crystalValueRed;
+$("#totalScore").text(totalScore);
+    if (totalScore === computerTargetNumber) {
+    wins++;
+    alert("You win")
+    HTML();
+    reset();
+  }
+  else if (totalScore >= computerTargetNumber) {
+    losses++;
+   alert("You lose!!");
+    HTML();
+    reset();
+     }
+  
+});  // click
+
+$(".yellowCrystal").on("click", function() {
+var crystalValueYellow = yellowCrystal;
+totalScore += crystalValueYellow;
+$("#totalScore").text(totalScore);
+    if (totalScore === computerTargetNumber) {
+    wins++;
+    alert("You win");
+        HTML();
+        reset();
+  }
+  else if (totalScore >= computerTargetNumber) {
+    losses++;
+   alert("You lose!!");
+    HTML();
+    reset();
+     }
+  
+}); // click
+
+$(".greenCrystal").on("click", function() {
+var crystalValueGreen = greenCrystal;
+totalScore += crystalValueGreen;
+$("#totalScore").text(totalScore);
+    if (totalScore === computerTargetNumber) {
+    wins++;
+    alert("You win");
+    HTML();
+    reset();
+  }
+  else if (totalScore >= computerTargetNumber) {
+    losses++;
+   alert("You lose!!");
+    HTML();
+   reset();
+  } 
+}); 
+ // click
+    
+  function reset() {
+    computerTargetNumber = Math.floor((Math.random() * 102) + 19);
+    $("#number-to-guess").text(computerTargetNumber);
+    blueCrystal = Math.floor((Math.random() * 12 - 1) + 1);
+    redCrystal = Math.floor((Math.random() * 12 - 1) + 1);
+    yellowCrystal = Math.floor((Math.random() * 12 - 1) + 1);
+    greenCrystal = Math.floor((Math.random() * 12 - 1) + 1);
+    totalScore = 0;
+    $("totalScore").text(totalScore);  
+  };
+
+  function HTML(){
+  $("#wins").text(wins);
+  $("#losses").text(losses);
+  $("#totalScore").text(totalScore)
+  };
+
+}); //document
+  </script>
+</body>
+</html>
