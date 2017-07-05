@@ -71,10 +71,9 @@
  $("#number-to-guess").text(computerTargetNumber);
 
 
- 
-$(".blueCrystal").on("click", function() {
-var crystalValueBlue = blueCrystal;
-totalScore += crystalValueBlue;
+
+function crystal(crystal){
+totalScore += crystal;
 $("#totalScore").text(totalScore);
     if (totalScore === computerTargetNumber) {
     wins++;
@@ -89,63 +88,27 @@ $("#totalScore").text(totalScore);
     HTML();
     reset();
     }
+}
+
  
-});  // click
+$(".blueCrystal").on("click", function() {
+
+crystal(blueCrystal);
+
+ });
+  // click
 
 $(".redCrystal").on("click", function() {
-var crystalValueRed = redCrystal;
-totalScore += crystalValueRed;
-$("#totalScore").text(totalScore);
-    if (totalScore === computerTargetNumber) {
-    wins++;
-    alert("You win")
-    HTML();
-    reset();
-  }
-  else if (totalScore >= computerTargetNumber) {
-    losses++;
-   alert("You lose!!");
-    HTML();
-    reset();
-     }
   
+crystal(redCrystal);
 });  // click
 
 $(".yellowCrystal").on("click", function() {
-var crystalValueYellow = yellowCrystal;
-totalScore += crystalValueYellow;
-$("#totalScore").text(totalScore);
-    if (totalScore === computerTargetNumber) {
-    wins++;
-    alert("You win");
-        HTML();
-        reset();
-  }
-  else if (totalScore >= computerTargetNumber) {
-    losses++;
-   alert("You lose!!");
-    HTML();
-    reset();
-     }
-  
+crystal(yellowCrystal);
 }); // click
 
 $(".greenCrystal").on("click", function() {
-var crystalValueGreen = greenCrystal;
-totalScore += crystalValueGreen;
-$("#totalScore").text(totalScore);
-    if (totalScore === computerTargetNumber) {
-    wins++;
-    alert("You win");
-    HTML();
-    reset();
-  }
-  else if (totalScore >= computerTargetNumber) {
-    losses++;
-   alert("You lose!!");
-    HTML();
-   reset();
-  } 
+crystal(greenCrystal);
 }); 
  // click
     
